@@ -1,5 +1,4 @@
 ﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.ColorProfiles;
 using SixLabors.ImageSharp.PixelFormats;
 using System;
 using System.Runtime.InteropServices;
@@ -10,7 +9,10 @@ using System.Runtime.InteropServices;
 // See https://aka.ms/new-console-template for more information
 int[] img1 = LoadImageAsIntArray("Images\\1.png");
 int[] img2 = LoadImageAsIntArray("Images\\2.png");
-Console.WriteLine(CompareImages(img1, img2).differenceInPixels);
+ImageCompareResult res = CompareImages(img1, img2);
+Console.WriteLine(res.differenceInPixels);
+Console.WriteLine(100 - res.matchingPercent * 100);
+
 
 
 ImageCompareResult CompareImages(int[] img1, int[] img2)
@@ -28,9 +30,14 @@ ImageCompareResult CompareImages(int[] img1, int[] img2)
     int matchingPixels = 0;
     for (int i = 0; i < totalPixels; i += step)
     {
-        matchingPixels += (img1[i] == img1[2]) ? 1 : 0;
+        if (img1[i] == img2[i])
+        {
+            matchingPixels++;
+        }
     }
 
+
+    res.matchingPixels = matchingPixels;
     res.comparedPixels = totalPixels / step;
     res.matchingPercent = matchingPixels;
     res.differenceInPixels = res.comparedPixels - res.matchingPixels;
