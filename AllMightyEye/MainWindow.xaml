@@ -1,0 +1,36 @@
+﻿<Window x:Class="smallTV.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:smallTV"
+        mc:Ignorable="d"
+        Title="All Mighty Eye"
+        Height="320"
+        Width="250"
+        ResizeMode="NoResize"
+        KeyDown="Window_KeyDown"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="Set top left boundary key" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="20,20,0,0" Height="25" Width="180" VerticalAlignment="Top"/>
+        <Button Name="ResetTopLeftBKeysButton" Click="ResetTopLeftBKeysButton_Click" HorizontalAlignment="Left" Margin="40,50,0,0" VerticalAlignment="Top" Height="20" Width="80" BorderThickness="0">
+            <Image Source="pack://application:,,,/Images/Reset.png" Stretch="Fill"/>
+        </Button>
+        <Label Name="TopLeftBKeysLabel" Content="Key1+Key2+Key3" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="130,47,0,0" Height="25" VerticalAlignment="Top"/>
+
+
+        <Label Content="Set bottom right boundary key" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="20,80,0,0" Height="25" Width="180" VerticalAlignment="Top"/>
+        <Button Name="ResetBottomRightBKeysButton" Click="ResetBottomRightBKeysButton_Click" HorizontalAlignment="Left" Margin="40,110,0,0" VerticalAlignment="Top" Height="20" Width="80" BorderThickness="0">
+            <Image Source="pack://application:,,,/Images/Reset.png" Stretch="Fill"/>
+        </Button>
+        <Label Name="BottomRightBKeysLabel" Content="Key1+Key2+Key3" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="130,107,0,0" Height="25" VerticalAlignment="Top"/>
+
+
+        <Label Content="Toggle trigger" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="20,140,0,0" Height="25" Width="120" VerticalAlignment="Top"/>
+        <Button Name="ResetToggleKeysButton" Click="ResetToggleKeysButton_Click" HorizontalAlignment="Left" Margin="40,170,0,0" VerticalAlignment="Top" Height="20" Width="80" BorderThickness="0">
+            <Image Source="pack://application:,,,/Images/Reset.png" Stretch="Fill"/>
+        </Button>
+        <Label Name="ToggleKeysLabel" Content="Key1+Key2+Key3" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="130,167,0,0" Height="25" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

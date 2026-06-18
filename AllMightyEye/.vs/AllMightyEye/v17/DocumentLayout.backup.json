@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B104AAEA-4439-4970-9B76-372F4355ED0D}|AllMightyEye.csproj|c:\\games coding hobby\\c#_projects\\changetrigger\\smalltv\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B104AAEA-4439-4970-9B76-372F4355ED0D}|AllMightyEye.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B104AAEA-4439-4970-9B76-372F4355ED0D}|AllMightyEye.csproj|c:\\games coding hobby\\c#_projects\\changetrigger\\smalltv\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B104AAEA-4439-4970-9B76-372F4355ED0D}|AllMightyEye.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{b9f91511-5ca5-40ec-9726-f3e3a7e534e2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAEkBAAAAAAAAAAAswEwBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T18:46:44.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-18T18:42:04.405Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
