@@ -1,4 +1,5 @@
-﻿using SharpHook;
+﻿using AllMightyEye;
+using SharpHook;
 using SharpHook.Data;
 using System;
 using System.Diagnostics;
@@ -334,12 +335,68 @@ namespace smallTV
         }
 
 
+        static Screenshooter scr = new Screenshooter();
+        static int[] reference = [];
+        static int[] temp = [];
+        static int x1 = 0;
+        static int y1 = 0;
+        static int x2 = 0;
+        static int y2 = 0;
+        static volatile bool IsThreadActive = false;
+        Thread DetectorLoopThread;
         public void ToggleFunction()
         {
-            double x1 = Math.Min(border1.X, border2.X);
-            double y1 = Math.Min(border1.Y, border2.Y);
-            double x2 = Math.Max(border1.X, border2.X);
-            double y2 = Math.Max(border1.Y, border2.Y);
+            x1 = Math.Min(border1.X, border2.X);
+            y1 = Math.Min(border1.Y, border2.Y);
+            x2 = Math.Max(border1.X, border2.X);
+            y2 = Math.Max(border1.Y, border2.Y);
+            int length = (x2 - x1) * (y2 - y1);
+
+            reference = new int[length];
+            temp = scr.CaptureScreenRectangle(x1, y1, x2 - x1, y2 - y1);
+            Buffer.BlockCopy(temp, 0, reference, 0, length * sizeof(int));
+
+
+            IsThreadActive = !IsThreadActive;
+            if (IsThreadActive)
+            {
+                DetectorLoopThread = new Thread(DetectorLoop);
+                DetectorLoopThread.Start();
+            }
+            else
+            {
+                Console.Beep(1200, 500);
+                DetectorLoopThread.Join();
+                Console.Beep(1200, 500);
+            }
+        }
+
+
+        static void DetectorLoop()
+        {
+            double mindellay = 200;
+            double timediff = 0;
+            DateTime lastActivated = DateTime.Now;
+            Screenshooter.ImageCompareResult compres;
+
+            while (IsThreadActive)
+            {
+                timediff = (DateTime.Now - lastActivated).TotalMilliseconds;
+                if (timediff < mindellay)
+                {
+                    Thread.Sleep(10);
+                    continue;
+                }
+                lastActivated = DateTime.Now;
+
+
+                temp = scr.CaptureScreenRectangle(x1, y1, x2 - x1, y2 - y1);
+                compres = Screenshooter.CompareImages(reference, temp);
+                if (compres.matchingPercent < 0.75)
+                {
+                    Console.Beep(800, (int)100);
+                }
+            }
         }
 
 

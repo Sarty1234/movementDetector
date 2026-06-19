@@ -1,6 +1,4 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 
 
@@ -58,19 +56,6 @@ public class ImageComparator
 
 
         return res;
-    }
-
-    private static int[] LoadImageAsIntArray(string filePath)
-    {
-        using (Image<Rgba32> image = Image.Load<Rgba32>(filePath))
-        {
-            int totalPixels = image.Height * image.Width;
-            int[] pixelArray = new int[totalPixels];
-
-            image.CopyPixelDataTo(MemoryMarshal.Cast<int, Rgba32>(pixelArray));
-
-            return pixelArray;
-        }
     }
 
 

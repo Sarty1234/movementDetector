@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\AllMightyEye.csproj": {}
+    "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\AllMightyEye\\AllMightyEye.csproj": {}
   },
   "projects": {
-    "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\AllMightyEye.csproj": {
+    "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\AllMightyEye\\AllMightyEye.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\AllMightyEye.csproj",
+        "projectUniqueName": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\AllMightyEye\\AllMightyEye.csproj",
         "projectName": "AllMightyEye",
-        "projectPath": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\AllMightyEye.csproj",
+        "projectPath": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\AllMightyEye\\AllMightyEye.csproj",
         "packagesPath": "C:\\Users\\KTRoom\\.nuget\\packages\\",
-        "outputPath": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\smallTV\\obj\\",
+        "outputPath": "C:\\Games Coding Hobby\\c#_projects\\ChangeTrigger\\AllMightyEye\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
