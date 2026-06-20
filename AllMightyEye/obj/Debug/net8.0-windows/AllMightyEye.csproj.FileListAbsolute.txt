@@ -65,3 +65,4 @@ C:\Games Coding Hobby\c#_projects\ChangeTrigger\AllMightyEye\obj\Debug\net8.0-wi
 C:\Games Coding Hobby\c#_projects\ChangeTrigger\AllMightyEye\obj\Debug\net8.0-windows\AllMightyEye.pdb
 C:\Games Coding Hobby\c#_projects\ChangeTrigger\AllMightyEye\obj\Debug\net8.0-windows\AllMightyEye.genruntimeconfig.cache
 C:\Games Coding Hobby\c#_projects\ChangeTrigger\AllMightyEye\obj\Debug\net8.0-windows\ref\AllMightyEye.dll
+C:\Games Coding Hobby\c#_projects\ChangeTrigger\AllMightyEye\bin\Debug\net8.0-windows\Sounds\triggersound.mp3

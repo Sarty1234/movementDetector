@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace smallTV
@@ -44,6 +45,7 @@ namespace smallTV
         {
             InitializeComponent();
             UpdateKeyLabels();
+            InitializeMediaPlayer();
         }
 
 
@@ -314,6 +316,47 @@ namespace smallTV
         }
 
 
+        private void PercentSelectedAsDiiferenceTriggerInComboBox(object sender, RoutedEventArgs e)
+        {
+            IsUsingPercentDifference = true;
+        }
+
+        private void PixelSelectedAsDiiferenceTriggerInComboBox(object sender, RoutedEventArgs e)
+        {
+            IsUsingPercentDifference = false;
+        }
+
+
+        private void TriggerValueChanged(object sender, TextChangedEventArgs e)
+        {
+            if (float.TryParse(TriggerValueTextBox.Text, out float newvalue))
+            {
+                triggerDifferenceValue = newvalue;
+            }
+            else
+            {
+                triggerDifferenceValue = 0;
+            }
+
+            TriggerValueTextBox.Text = triggerDifferenceValue.ToString();
+        }
+
+
+        private void SoundCapValueChanged(object sender, TextChangedEventArgs e)
+        {
+            if (float.TryParse(SoundCapValueTextBox.Text, out float newvalue))
+            {
+                soundCapValue = newvalue;
+            }
+            else
+            {
+                soundCapValue = 1;
+            }
+            if (soundCapValue == 0) soundCapValue = 1;
+
+            SoundCapValueTextBox.Text = soundCapValue.ToString();
+        }
+
 
         // *************************************************** //
         //                                                     //
@@ -326,12 +369,14 @@ namespace smallTV
         public void TopLeftBFunction()
         {
             GetCursorPos(out border1);
+            Console.Beep(800, 500);
         }
 
 
         public void BottomRightBFunction()
         {
             GetCursorPos(out border2);
+            Console.Beep(800, 500);
         }
 
 
@@ -343,6 +388,9 @@ namespace smallTV
         static int x2 = 0;
         static int y2 = 0;
         static volatile bool IsThreadActive = false;
+        static volatile bool IsUsingPercentDifference = true;
+        static float triggerDifferenceValue = 1;
+        static float soundCapValue = 15;
         Thread DetectorLoopThread;
         public void ToggleFunction()
         {
@@ -351,6 +399,7 @@ namespace smallTV
             x2 = Math.Max(border1.X, border2.X);
             y2 = Math.Max(border1.Y, border2.Y);
             int length = (x2 - x1) * (y2 - y1);
+            if (length == 0) return;
 
             reference = new int[length];
             temp = scr.CaptureScreenRectangle(x1, y1, x2 - x1, y2 - y1);
@@ -361,17 +410,23 @@ namespace smallTV
             if (IsThreadActive)
             {
                 DetectorLoopThread = new Thread(DetectorLoop);
+                DetectorLoopThread.IsBackground = true;
+                _mediaPlayer.Play();
                 DetectorLoopThread.Start();
+                Console.Beep(1200, 500);
             }
             else
             {
                 Console.Beep(1200, 500);
+                _mediaPlayer.Volume = 0;
                 DetectorLoopThread.Join();
+                _mediaPlayer.Stop();
                 Console.Beep(1200, 500);
             }
         }
 
 
+        static MediaPlayer _mediaPlayer;
         static void DetectorLoop()
         {
             double mindellay = 200;
@@ -379,6 +434,7 @@ namespace smallTV
             DateTime lastActivated = DateTime.Now;
             Screenshooter.ImageCompareResult compres;
 
+            float volume = 0;
             while (IsThreadActive)
             {
                 timediff = (DateTime.Now - lastActivated).TotalMilliseconds;
@@ -392,11 +448,34 @@ namespace smallTV
 
                 temp = scr.CaptureScreenRectangle(x1, y1, x2 - x1, y2 - y1);
                 compres = Screenshooter.CompareImages(reference, temp);
-                if (compres.matchingPercent < 0.75)
+                if (IsUsingPercentDifference)
                 {
-                    Console.Beep(800, (int)100);
+                    volume = ((100 - compres.matchingPercent * 100) - triggerDifferenceValue) / soundCapValue;
                 }
+                else
+                {
+                    volume = (compres.differenceInPixels - triggerDifferenceValue) / soundCapValue;
+                }
+                volume = Math.Clamp(volume, 0, 1);
+                App.Current.Dispatcher.Invoke(() =>
+                {
+                    _mediaPlayer.Volume = volume;
+                });
             }
+        }
+
+        private static void InitializeMediaPlayer()
+        {
+            _mediaPlayer = new MediaPlayer();
+            _mediaPlayer.Open(new Uri("Sounds\\triggersound.mp3", UriKind.Relative));
+            _mediaPlayer.MediaEnded += MediaPlayerRestarter;
+            _mediaPlayer.Volume = 0;
+        }
+
+        private static void MediaPlayerRestarter(object sender, EventArgs e)
+        {
+            _mediaPlayer.Position = TimeSpan.Zero;
+            _mediaPlayer.Play();
         }
 
 

@@ -32,5 +32,20 @@
         </Button>
         <Label Name="ToggleKeysLabel" Content="Key1+Key2+Key3" FontFamily="HP Simplified" HorizontalAlignment="Left" Margin="130,167,0,0" Height="25" VerticalAlignment="Top"/>
 
+
+
+
+        <Label Content="Trigger based on                                difference" FontFamily="HP Simplified" HorizontalAlignment="Left"  Margin="20,200,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="110,200,0,0" VerticalAlignment="Top" Width="70">
+            <ComboBoxItem Content="Percent" IsSelected="True" Selected="PercentSelectedAsDiiferenceTriggerInComboBox"/>
+            <ComboBoxItem Content="Pixel" Selected="PixelSelectedAsDiiferenceTriggerInComboBox"/>
+        </ComboBox>
+
+        <Label Content="Trigger value" FontFamily="HP Simplified" HorizontalAlignment="Left"  Margin="20,230,0,0" VerticalAlignment="Top" Width="80"/>
+        <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="20,259,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="71" Name="TriggerValueTextBox" TextChanged="TriggerValueChanged"/>
+        
+        <Label Content="Sound cap value" FontFamily="HP Simplified" HorizontalAlignment="Left"  Margin="140,230,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="145,259,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="71" Name="SoundCapValueTextBox" TextChanged="SoundCapValueChanged"/>
+
     </Grid>
 </Window>

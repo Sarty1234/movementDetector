@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AllMightyEye")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6993b4eee2c04948f92f01546c477b244b73abf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec1228d37b37cbbf0a0ebb95504582269d414e65")]
 [assembly: System.Reflection.AssemblyProductAttribute("AllMightyEye")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AllMightyEye")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
