@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:smallTV"
         mc:Ignorable="d"
         Title="All Mighty Eye"
-        Height="320"
-        Width="250"
+        Height="340"
+        Width="270"
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown"
         Loaded="Window_Loaded">
